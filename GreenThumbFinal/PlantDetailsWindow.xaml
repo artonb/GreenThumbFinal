@@ -1,0 +1,31 @@
+﻿<Window x:Class="GreenThumbFinal.PlantDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GreenThumbFinal"
+        mc:Ignorable="d"
+        Title="PlantDetailsWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/Planten.jfif"/>
+        </Grid.Background>
+        <Image Width="250" Height="170" Grid.Row="0" Grid.RowSpan="6">
+        </Image>
+        <ListView Name="lstView" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="20" Background="Transparent" BorderBrush="BlanchedAlmond" Foreground="BlanchedAlmond"/>
+        <Button Name="btnReturn" Grid.Row="0" Grid.Column="0" FontSize="15" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Content="Return" Background="Transparent" BorderBrush="BlanchedAlmond" Foreground="BlanchedAlmond" FontWeight="Bold"/>
+    </Grid>
+</Window>
