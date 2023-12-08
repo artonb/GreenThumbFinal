@@ -25,7 +25,10 @@
         </Grid.Background>
         <Image Width="250" Height="170" Grid.Row="0" Grid.RowSpan="6">
         </Image>
-        <ListView Name="lstView" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="20" Background="Transparent" BorderBrush="BlanchedAlmond" Foreground="BlanchedAlmond"/>
-        <Button Name="btnReturn" Grid.Row="0" Grid.Column="0" FontSize="15" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Content="Return" Background="Transparent" BorderBrush="BlanchedAlmond" Foreground="BlanchedAlmond" FontWeight="Bold"/>
+        <Label Content="Name" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Margin="20 0" Foreground="BlanchedAlmond"/>
+        <Label Content="Instructions" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Margin="20 0" Foreground="BlanchedAlmond"/>
+        <TextBox Name="txtName" Grid.Column="0" Grid.Row="2" Width="250" Height="30" FontSize="20" Background="Transparent" BorderBrush="BlanchedAlmond" HorizontalAlignment="Right" Margin="30 0" Foreground="BlanchedAlmond"/>
+        <ListView Name="lstInstructions" Grid.Column="0" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="2" Width="650" Height="150" FontSize="15" Background="Transparent" BorderBrush="BlanchedAlmond" HorizontalAlignment="Right" Margin="0 0 22 0" Foreground="BlanchedAlmond"/>
+        <Button Name="btnReturn" Grid.Row="0" Grid.Column="0" FontSize="15" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Content="Return" Background="Transparent" BorderBrush="BlanchedAlmond" Foreground="BlanchedAlmond" FontWeight="Bold" Click="btnReturn_Click"/>
     </Grid>
 </Window>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace GreenThumbFinal.Database
@@ -19,15 +20,27 @@ namespace GreenThumbFinal.Database
             return await _dbSet.FindAsync(id);
         }
 
-        public async Task<List<T>> GetAll()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            return _dbSet.ToList();
         }
 
         public async Task Add(T entity)
         {
             await _dbSet.AddAsync(entity);
         }
+
+        public async Task Delete(T entity)
+        {
+            _dbSet.Remove(entity);
+            await _context.SaveChangesAsync();
+        }
+
 
 
     }
