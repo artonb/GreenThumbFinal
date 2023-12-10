@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GreenThumbFinal.Migrations
 {
     [DbContext(typeof(GreenThumbDbContext))]
-    [Migration("20231206145117_Initial")]
-    partial class Initial
+    [Migration("20231210015129_GTFinal")]
+    partial class GTFinal
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

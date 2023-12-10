@@ -30,17 +30,15 @@ namespace GreenThumbFinal.Database
             return _dbSet.ToList();
         }
 
-        public async Task Add(T entity)
-        {
-            await _dbSet.AddAsync(entity);
-        }
-
         public async Task Delete(T entity)
         {
             _dbSet.Remove(entity);
             await _context.SaveChangesAsync();
         }
 
+        public async Task AddAsync(T entity) => await _dbSet.AddAsync(entity);
+
+        public async Task SaveChangesAsync() => await _context.SaveChangesAsync();
 
 
     }

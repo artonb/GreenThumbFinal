@@ -7,11 +7,9 @@ using System.Windows.Controls;
 
 namespace GreenThumbFinal
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        //Holds all data from database and filteredPlants based on search
         private List<Plants> allPlants;
         private List<Plants> filteredPlants;
         public MainWindow()
@@ -22,9 +20,11 @@ namespace GreenThumbFinal
             {
                 var repository = new Repository<Plants>(context);
 
+                //Get all plants from repository
                 var allPlants = repository.GetAll();
                 var filteredPlants = allPlants;
 
+                //Display all gotten plants in a ListView
                 foreach (var plant in filteredPlants)
                 {
                     ListViewItem item = new();
@@ -35,20 +35,22 @@ namespace GreenThumbFinal
             }
         }
 
-
+        //Filter plants based on the text input in searchbar
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             using (GreenThumbDbContext context = new())
             {
                 var repository = new Repository<Plants>(context);
 
+                //Get all plants from repository
                 var allPlants = repository.GetAll();
                 string searchPlant = txtSearch.Text.ToLower();
 
-                //var filtererdPlants = allPlants;
+                //Filter plants based on text input in searchbar
                 var filteredPlants = allPlants.Where(p => p.Name.ToLower().Contains(searchPlant));
                 lstView.Items.Clear();
 
+                //Display filtered plants in the ListView
                 foreach (var plant in filteredPlants)
                 {
                     ListViewItem item = new();
@@ -59,8 +61,7 @@ namespace GreenThumbFinal
             }
         }
 
-
-
+        //Display details in another window about the selected plant
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
             ListViewItem selectedItem = (ListViewItem)lstView.SelectedItem;
@@ -77,6 +78,7 @@ namespace GreenThumbFinal
             }
         }
 
+        //Opens the AddPlantWindow
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             AddPlantWindow addPlantWindow = new();
@@ -84,31 +86,31 @@ namespace GreenThumbFinal
             Close();
         }
 
-        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        //Removes selected item from the ListView and database
+        private async void btnRemove_Click(object sender, RoutedEventArgs e)
         {
             ListViewItem selectedItem = (ListViewItem)lstView.SelectedItem;
+            Plants plantsToRemove = (Plants)selectedItem.Tag;
             if (selectedItem != null)
             {
-                Plants plantsToRemove = (Plants)selectedItem.Tag;
-                if (selectedItem != null)
+                //Ask for comfirmation
+                var results = MessageBox.Show("Are you sure you want to delete this?", "Warning!", MessageBoxButton.YesNo);
+                if (results == MessageBoxResult.Yes)
                 {
-                    var results = MessageBox.Show("Are you sure you want to delete this?", "Warning!", MessageBoxButton.YesNo);
-                    if (results == MessageBoxResult.Yes)
+                    //Remove from ListView
+                    lstView.Items.Remove(lstView.SelectedItem);
+
+                    //Remove from database
+                    using (GreenThumbDbContext context = new())
                     {
-                        lstView.Items.Remove(lstView.SelectedItem);
-
-                        using (GreenThumbDbContext context = new())
-                        {
-                            var repository = new Repository<Plants>(context);
-                            repository.Delete(plantsToRemove);
-                        }
+                        var repository = new Repository<Plants>(context);
+                        repository.Delete(plantsToRemove);
                     }
-                    else
-                    {
-                        MessageBox.Show("You need to select the item you want to delete!", "Item not selected!");
-                    }
-
-
+                }
+                else
+                {
+                    //If not selected, messagebox.
+                    MessageBox.Show("You need to select the item you want to delete!", "Item not selected!");
                 }
             }
         }

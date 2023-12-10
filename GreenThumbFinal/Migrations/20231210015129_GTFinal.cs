@@ -7,7 +7,7 @@
 namespace GreenThumbFinal.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class GTFinal : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

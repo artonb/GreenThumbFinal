@@ -9,5 +9,6 @@ namespace GreenThumbFinal.Models
         public int PlantsId { get; set; }
         public string Name { get; set; } = null!;
         public List<Instructions> Instructions { get; set; } = new();
+
     }
 }

@@ -35,8 +35,8 @@
         <TextBox Name="txtInstruction" Grid.Row="2" Grid.RowSpan="2" Height="100" Width="200" FontSize="20" Foreground="BlanchedAlmond" HorizontalAlignment="Right" Background="Transparent" BorderBrush="BlanchedAlmond"/>
         <Label Content="All instructions added" Grid.Row="4" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="BlanchedAlmond"/>
         <ListView Name="lstView" Grid.Row="5" Grid.RowSpan="2" FontSize="15" Width="350" Foreground="BlanchedAlmond" HorizontalAlignment="Center" Height="100" Background="Transparent" BorderBrush="BlanchedAlmond" />
-        <Button Name="btnAdd" Grid.Row="5" Grid.Column="1" FontSize="30" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Content="Add plant" Background="Transparent" BorderBrush="BlanchedAlmond" Foreground="BlanchedAlmond" FontWeight="Bold"/>
-        <Button Name="btnAddInstruction" Grid.Row="3" Grid.Column="1" FontSize="15" Margin="10" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" Content="Add instruction" Background="Transparent" BorderBrush="BlanchedAlmond" Foreground="BlanchedAlmond" FontWeight="Bold"/>
+        <Button Name="btnAdd" Grid.Row="5" Grid.Column="1" FontSize="30" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Content="Add plant" Background="Transparent" BorderBrush="BlanchedAlmond" Foreground="BlanchedAlmond" FontWeight="Bold" Click="btnAdd_Click"/>
+        <Button Name="btnAddInstruction" Grid.Row="3" Grid.Column="1" FontSize="15" Margin="10" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" Content="Add instruction" Background="Transparent" BorderBrush="BlanchedAlmond" Foreground="BlanchedAlmond" FontWeight="Bold" Click="btnAddInstruction_Click"/>
         <Button Name="btnReturn" Grid.Row="0" Grid.Column="0" FontSize="15" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Content="Return" Background="Transparent" BorderBrush="BlanchedAlmond" Foreground="BlanchedAlmond" FontWeight="Bold" Click="btnReturn_Click"/>
     </Grid>
 </Window>
